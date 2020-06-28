@@ -50,6 +50,9 @@
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -113,7 +116,13 @@
     <Content Include="library\bootstrap\bootstrap.min.js" />
     <Content Include="library\fontawsome\font-awesome.min.css" />
     <Content Include="library\jquery\jquery-3.2.1.slim.min.js" />
+    <Content Include="library\jquery\jquery.dataTables.min.css" />
+    <Content Include="library\jquery\jquery.dataTables.min.js" />
     <Content Include="library\jquery\popper.min.js" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="SampleMVCModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SampleMVCModel.Context.cs</LastGenOutput>
@@ -135,6 +144,7 @@
     </Content>
     <Content Include="Areas\Area\Views\web.config" />
     <Content Include="Areas\User\Views\web.config" />
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

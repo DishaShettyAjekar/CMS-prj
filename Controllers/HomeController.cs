@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-
+using Rotativa;
 namespace MVCProject.Controllers
 {
 
@@ -70,7 +70,8 @@ namespace MVCProject.Controllers
         {
             SampleMVCEntities db = new SampleMVCEntities();
             tbl_User user = db.tbl_User.Find(id);
-            ViewData["Gender"] = user.Gender;
+            List<tbl_skills> skills = db.tbl_skills.ToList();
+            user.Gender = user.Gender.Trim();
             return View(user);
         }
 
@@ -122,6 +123,13 @@ namespace MVCProject.Controllers
         {
             FormsAuthentication.SignOut();
             return this.RedirectToAction("Login", "Account");
+        }
+
+
+        public ActionResult PrintAll()
+        {
+            var print = new ActionAsPdf("List");
+            return print;
         }
     }
 }

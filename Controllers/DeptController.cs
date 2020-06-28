@@ -8,13 +8,17 @@ namespace MVCProject.Controllers
 {
     public class DeptController : Controller
     {
-        [Authorize(Roles = "User")]
         // GET: Dept
         public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult List()
+        {
             SampleMVCEntities db = new SampleMVCEntities();
-            var skill = db.tbl_skills.ToList();
-            return View(skill);
+            List<tbl_User> user = db.tbl_User.ToList();
+            return Json(new { data= user},JsonRequestBehavior.AllowGet);
         }
     }
 }
