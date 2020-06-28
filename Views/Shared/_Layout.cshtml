@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/library/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/library/bootstrap/bootstrap-datepicker.min.css" rel="stylesheet" />
+    @*<link href="~/library/fontawsome/font-awesome.min.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav"></ul>
+                </div>
+            </div>
+        </div>*@
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        @Html.ActionLink("CodeX", "", "", new { area = "" }, new { @class = "navbar-brand" })
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navb">
+            <ul class="navbar-nav mr-auto">
+                @if (User.Identity.IsAuthenticated == false)
+                {
+                    <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+                }
+                @if (User.Identity.IsAuthenticated == true)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item"><a href="" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Contact Us</a></li>
+                    }
+
+                    <li class="nav-item">@Html.ActionLink("User List", "List", "Home", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Register", "Register", "Home", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Skill", "Index", "Dept", new { @class = "nav-link" })</li>
+
+                }
+
+            </ul>
+            <ul class="navbar-nav ml-auto">
+
+                @if (User.Identity.IsAuthenticated == true)
+                {
+                    <li class="nav-item">@Html.ActionLink("Logout", "Logout", "Home", new { @class = "nav-link" })</li>
+                    <li class="nav-item text-info">@User.Identity.Name</li>
+                }
+                @if (User.Identity.IsAuthenticated == false)
+                {
+                    <li class="nav-item">@Html.ActionLink("Login", "Login", "Account", new { @class = "nav-link" })</li>
+                }
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    <script src="~/library/jquery/jquery-3.2.1.slim.min.js"></script>
+    @*<script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+    <script src="~/library/jquery/popper.min.js"></script>
+    <script src="~/library/bootstrap/bootstrap.min.js"></script>
+    <script src="~/library/bootstrap/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/Scripts/custom.js"></script>
+</body>
+</html>
