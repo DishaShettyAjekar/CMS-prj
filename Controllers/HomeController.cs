@@ -70,7 +70,7 @@ namespace MVCProject.Controllers
         {
             SampleMVCEntities db = new SampleMVCEntities();
             tbl_User user = db.tbl_User.Find(id);
-            List<tbl_skills> skills = db.tbl_skills.ToList();
+            ViewBag.skills = db.tbl_skills.ToList();
             user.Gender = user.Gender.Trim();
             return View(user);
         }
